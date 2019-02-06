@@ -1,0 +1,17 @@
+steps for login,registration,authentication:
+set up backend:
+1. initialize with package.json, install dependencies 
+	and add the following to package.json: "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+},
+
+2. Set up MongoDB on mLab. create config>keys.js and add mongo keys to it.
+
+3. Add express, mongoose and bodyparser to server.js file.  Add mongoose connection and keys to the server file, run and make sure you can connect.
+
+4. Set up User database schema in Models directory
+
+5. Set up "register" and "login" validation in "validation" directory
+
+6. Set up "routes" directory. inside, create an "api" directory and create a users.js file.
