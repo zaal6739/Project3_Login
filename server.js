@@ -26,13 +26,6 @@ app.use('/users', Users)
 
 app.set('port', process.env.PORT || 5000);//added for heroku
 
-if (process.env.NODE_ENV === 'production') {//added for heroku
-	app.use(express.static('client/build'));//added for heroku
-}
-
-app.get('*', (request, response) => {//added for heroku
-	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
 
 
 const businessRoute = require('./routes/Business');
