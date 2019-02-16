@@ -37,9 +37,9 @@ render() {
             <tr>
                 <th>Persons</th>
                 <th>Business</th>
-                <th>GST Number</th>
+                <th>Number</th>
                 <th>Email</th>
-                <th>Note</th>
+                <th>Note/Edit</th>
                 <th colSpan="2">Action</th>
             </tr>
         </thead>

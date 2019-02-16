@@ -110,17 +110,21 @@ componentDidMount() {
         <img id="note" src={require('../img/note.png')} alt="note" />
         </Button>
         <Dialog
+          className="textfieldid"
+          fullWidth={true}
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-          <DialogContent id="modalSize">
-            <DialogContentText id="modalSize">
+          <DialogContent >
+            <DialogContentText >
              Add a note or edit the client: 
             </DialogContentText>
             <TextField
-              id="textField"
+              fullWidth={true}
+              maxWidth={'md'}
+              style={{fontSize: '30%' }}
               autoFocus
               onChange={this.onChangeNote}
               value={this.state.person_note || ''}
@@ -131,7 +135,9 @@ componentDidMount() {
             />
             <br />
              <TextField
-              autoFocus
+              fullWidth={true}
+              maxWidth = {'md'}
+              style={{fontSize: '30%' }}
               onChange={this.onChangeName}
               value={this.state.person_name || ''}
               margin="dense"
@@ -141,22 +147,24 @@ componentDidMount() {
             />
             <br />
             <TextField
-              autoFocus
+              fullWidth={true}
+              maxWidth = {'md'}
               onChange={this.onChangeEmail}
               value={this.state.person_email || ''}
               margin="dense"
-              label="name"
-              type="text"
+              label="email"
+              type="email"
               fullwidth='true'
             />
             <br />
             <TextField
-              autoFocus
+              fullWidth={true}
+              maxWidth = {'md'}
               onChange={this.onChangeNumber}
               value={this.state.business_gst_number || ''}
               margin="dense"
-              label="name"
-              type="text"
+              label="number"
+              type="number"
               fullwidth='true'
             />
           </DialogContent>

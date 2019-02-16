@@ -13,15 +13,7 @@ here you can change #f3ad00 main color.
     border: #f3ad00;
 }
 
-#modalSize{
-    width: 500px;
-    height:500px;
-}
 
-#textField {
-    height:200px;
-    width:200px;
-}
  
 
    
@@ -70,6 +62,7 @@ a, a:link, a:visited, a:focus {
 b, strong {
     font-weight: 600;
 }
+
 
 h1, h2, h3 { font-weight: 600; }
 
