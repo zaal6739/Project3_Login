@@ -169,10 +169,10 @@ componentDidMount() {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleClose} color="primary"  style={{fontSize: '180%'}}>
               Cancel
             </Button>
-            <Button type='submit' onClick={this.onSubmit} color="primary" >
+            <Button type='submit' onClick={this.onSubmit} color="primary" style={{fontSize: '200%'}} >
               Subscribe
               </Button>
             
