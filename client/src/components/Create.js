@@ -63,7 +63,7 @@ export default class Create extends Component {
  
   render() {
     return (
-        <div style={{ marginTop: 10 }}>
+        <div style={{ backgroundColor:"white",marginTop: 10 }}>
             <h3>Add New Business</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
@@ -101,7 +101,7 @@ export default class Create extends Component {
                       />
                 </div>
                 <div className="form-group">
-                    <input type="submit" value="Register Business" className="btn btn-primary"/>
+                    <input type="submit" value="Register Business" className="btn btn-primary" style={{background: "#f3ad00", marginTop: "10px"}}/>
                 </div>
             </form>
         </div>

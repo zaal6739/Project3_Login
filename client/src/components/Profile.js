@@ -4,6 +4,8 @@ import jwt_decode from 'jwt-decode'
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import Create from "./Create";
+import Mail from "./Mail";
+import ClientList from "./ClientList";
 
 class Profile extends Component {
     constructor() {
@@ -55,11 +57,13 @@ class Profile extends Component {
         <div className="content-posts profile-content">
         <div className="banner-profile">
         </div>
-       {/* navbar with actions */}
+
+
+ {/* navbar with actions */}
         <ul className="nav nav-tabs" role="tablist">
             <li class="active"><a href="#posts" role="tab" id="postsTab" data-toggle="tab" aria-controls="posts" aria-expanded="true">Client Signup</a></li>
-            <li><a href="#profile" role="tab" id="profileTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">Profile</a></li>
-            <li><a href="#chat" role="tab" id="chatTab" data-toggle="tab" aria-controls="chat" aria-expanded="true">Notes</a></li>
+            <li><a href="#profile" role="tab" id="emailTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">Mail Clients</a></li>
+            <li><a href="#chat" role="tab" id="chatTab" data-toggle="tab" aria-controls="chat" aria-expanded="true">List of Clients</a></li>
         </ul>
 
      
@@ -67,7 +71,7 @@ class Profile extends Component {
 
  {/* 'create' a new business tab */}
             <div class="tab-pane fade active in" role="tabpanel" id="posts" aria-labelledby="postsTab">
-                <div id="posts-container" class="container-fluid container-posts">
+                <div id="posts-container" class="container-fluid container-posts" style={{ backgroundColor:"white"}}>
                
              <div class="card-post">
                 <div class="row">
@@ -88,16 +92,22 @@ class Profile extends Component {
                     <img src="img/load.gif" alt="loader"/>
                 </div>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="profileTab">
-                <div class="container-fluid container-posts">
-                    <div class="card-post">
-                        <ul class="profile-data">
-                            <li><b>Company:</b> ZGlobal</li>
-                            <li><b>Username:</b>Zaal6739</li>
-                            <li><b>Industry</b>Energy</li>
-                            
-                        </ul>
-                        <p><a href="" title="edit profile"><i class="fa fa-pencil" aria-hidden="true"></i> Edit profile</a></p>
+{/* mail tab */}
+            <div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="emailTab">
+                <div class="container-fluid container-posts" style={{ backgroundColor:"white"}}>
+                    <div class="card-post" >
+                    <div className='row'>
+                    <Route exact component={ Mail } />
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" role="tabpanel" id="chat" aria-labelledby="emailTab">
+                <div class="container-fluid container-posts" style={{ backgroundColor:"white"}}>
+                    <div class="card-post" >
+                    <div className='row'>
+                    <Route exact component={ ClientList } />
+                    </div>
                     </div>
                 </div>
             </div>
