@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import jwt_decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode';
+import axios from "axios";
 
-import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import Create from "./Create";
 import Mail from "./Mail";
@@ -11,12 +12,16 @@ class Profile extends Component {
     constructor() {
         super()
         this.state = {
+            open_tab: 0,
             company_name: '',
-            email: ''
+            email: '',
+            business: []
         }
+        this.loadBusiness=this.loadBusiness.bind(this);
     }
 
     componentDidMount () {
+        this.loadBusiness()
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
         this.setState({
@@ -24,6 +29,17 @@ class Profile extends Component {
             email: decoded.email,
         })
     }
+    
+    
+    loadBusiness = () => {
+        axios
+          .get('/business')
+          .then(response => {
+              this.setState({
+                business: response.data,
+              });
+          });
+      };
 
     render () {
         return (
@@ -61,26 +77,27 @@ class Profile extends Component {
 
  {/* navbar with actions */}
         <ul className="nav nav-tabs" role="tablist">
-            <li class="active"><a href="#posts" role="tab" id="postsTab" data-toggle="tab" aria-controls="posts" aria-expanded="true">Client Signup</a></li>
+            <li className="{open_tab ? 0 => 'active':''}"><a href="#posts" role="tab" id="postsTab" data-toggle="tab" aria-controls="posts" aria-expanded="true">Client Signup</a></li>
             <li><a href="#profile" role="tab" id="emailTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">Mail Clients</a></li>
             <li><a href="#chat" role="tab" id="chatTab" data-toggle="tab" aria-controls="chat" aria-expanded="true">List of Clients</a></li>
         </ul>
 
      
-        <div class="tab-content">
+        <div className="tab-content">
 
  {/* 'create' a new business tab */}
-            <div class="tab-pane fade active in" role="tabpanel" id="posts" aria-labelledby="postsTab">
-                <div id="posts-container" class="container-fluid container-posts" style={{ backgroundColor:"white"}}>
+            <div className="{open_tab ? 0 => 'active':''}" role="tabpanel" id="posts" aria-labelledby="postsTab">
+                <div id="posts-container" className="container-fluid container-posts" style={{ backgroundColor:"white"}}>
                
-             <div class="card-post">
-                <div class="row">
-                <Route exact component={ Create } />
+             <div className="card-post">
+                <div className="row">
+                {/* <Route exact component={ Create } /> */}
+                <Create loadmethod={this.loadBusiness} />
                               </div>
-                        <div class="row">
-                            <div class="col-sm-8 col-sm-offset-2 data-post">
+                        <div className="row">
+                            <div className="col-sm-8 col-sm-offset-2 data-post">
                                
-                                <div class="reaction">
+                                <div className="reaction">
                                  
                                 </div>
                              
@@ -93,20 +110,21 @@ class Profile extends Component {
                 </div>
             </div>
 {/* mail tab */}
-            <div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="emailTab">
-                <div class="container-fluid container-posts" style={{ backgroundColor:"white"}}>
-                    <div class="card-post" >
+            <div className="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="emailTab">
+                <div className="container-fluid container-posts" style={{ backgroundColor:"white"}}>
+                    <div className="card-post" >
                     <div className='row'>
                     <Route exact component={ Mail } />
                     </div>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="chat" aria-labelledby="emailTab">
-                <div class="container-fluid container-posts" style={{ backgroundColor:"white"}}>
-                    <div class="card-post" >
+            <div className="tab-pane fade" role="tabpanel" id="chat" aria-labelledby="emailTab">
+                <div className="container-fluid container-posts" style={{ backgroundColor:"white"}}>
+                    <div className="card-post" >
                     <div className='row'>
-                    <Route exact component={ ClientList } />
+                    {/* <Route exact component={ ClientList } /> */}
+                    <ClientList data={this.state.business} loadmethod={this.loadBusiness} />
                     </div>
                     </div>
                 </div>

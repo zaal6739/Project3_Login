@@ -17,7 +17,7 @@ class TableRow extends Component {
 
     delete() {
         axios.get('/business/delete/'+this.props.obj._id)
-            .then(this.props.loadmethod)
+            .then(this.props.loadmethod())
             .catch(err => console.log(err))
     }
 
@@ -43,9 +43,6 @@ class TableRow extends Component {
           </td>
           <td>
             <FormDialog noteId={this.props.obj._id} onClick={this.handleClickOpen} />
-          </td>
-          <td>
-            <Link to={"/edit/"+this.props.obj._id} className="btn"><img className="note" src={require('../img/note.png')} alt="note" /></Link>
           </td>
           <td>
             <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>

@@ -15,7 +15,7 @@ app.use(
 )
 
 //mongoose connection
-const mongoURI = 'mongodb://zaal6739:604Sutter!@ds125385.mlab.com:25385/loginauthenticate'
+const mongoURI = 'mongodb://zaal6739:604Sutter!@ds125385.mlab.com:25385/loginauthenticate';
 mongoose.connect(mongoURI, { useNewUrlParser: true })
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error"))

@@ -1,38 +1,30 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import TableRow from './TableRow';
 
 export default class ClientList extends Component {
-    _isMounted = false;
 
-constructor(props) {
-    super(props);
-    this.state = {business: []}
-    this.loadBusiness = this.loadBusiness.bind(this);
-
-}
-
-componentDidMount() {
-    this.loadBusiness();
-}
-
+    constructor(props) {
+        super(props);
+        this.loadBusiness = this.loadBusiness.bind(this);
+    }
 
 loadBusiness = () => {
-    axios
-      .get('/business')
-      .then(response => {
-          this.setState({
-            business: response.data,
-          });
-      });
-  };
+    console.log('success');
+    this.props.loadmethod();
+    
+}
 
 tabRow(){
     // loop through business array and return them as table rows
-    return this.state.business.map(function(object, i) {
+    if(this.props.data){
+    return this.props.data.map(function(object, i) {
         // console.log(object, i);
         return <TableRow obj={object} key={i} loadmethod={this.loadBusiness} />
     }, this);
+}else {
+    return <tr></tr>;
+}
 }
 
 

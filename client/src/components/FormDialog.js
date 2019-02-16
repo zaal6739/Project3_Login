@@ -16,6 +16,9 @@ export default class FormDialog extends Component {
         this.handleClose = this.handleClose.bind(this);
         this.onChangeNote = this.onChangeNote.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onChangeName= this.onChangeName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangeNumber = this.onChangeNumber.bind(this);
     
   
   
@@ -47,6 +50,24 @@ componentDidMount() {
       })
 }
 
+  onChangeName(e) {
+    this.setState({
+      person_name: e.target.value
+    })
+  }
+  
+  onChangeEmail(e) {
+    this.setState({
+      person_email: e.target.value
+    })
+  }
+ 
+  onChangeNumber(e) {
+    this.setState({
+    business_gst_number: e.target.value
+    })
+  }
+  
     
   onChangeNote(e) {
         this.setState({
@@ -86,7 +107,7 @@ componentDidMount() {
     return (
       <div>
         <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Open form dialog
+        <img id="note" src={require('../img/note.png')} alt="note" />
         </Button>
         <Dialog
           open={this.state.open}
@@ -94,17 +115,47 @@ componentDidMount() {
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              To subscribe to this website, please enter your email address here. We will send
-              updates occasionally.{this.props.noteId}
+          <DialogContent id="modalSize">
+            <DialogContentText id="modalSize">
+             Add a note or edit the client: 
             </DialogContentText>
             <TextField
+              id="textField"
               autoFocus
               onChange={this.onChangeNote}
               value={this.state.person_note || ''}
               margin="dense"
               label="Note"
+              type="text"
+              fullwidth='true'
+            />
+            <br />
+             <TextField
+              autoFocus
+              onChange={this.onChangeName}
+              value={this.state.person_name || ''}
+              margin="dense"
+              label="name"
+              type="text"
+              fullwidth='true'
+            />
+            <br />
+            <TextField
+              autoFocus
+              onChange={this.onChangeEmail}
+              value={this.state.person_email || ''}
+              margin="dense"
+              label="name"
+              type="text"
+              fullwidth='true'
+            />
+            <br />
+            <TextField
+              autoFocus
+              onChange={this.onChangeNumber}
+              value={this.state.business_gst_number || ''}
+              margin="dense"
+              label="name"
               type="text"
               fullwidth='true'
             />

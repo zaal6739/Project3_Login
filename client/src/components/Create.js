@@ -17,6 +17,8 @@ export default class Create extends Component {
       person_email:''
     }
   }
+
+
   onChangePersonName(e) {
     this.setState({
       person_name: e.target.value
@@ -44,6 +46,7 @@ export default class Create extends Component {
   onSubmit(e) {
     e.preventDefault();
     document.getElementById('focus').focus();
+
     const obj = {
       person_name: this.state.person_name,
       business_name: this.state.business_name,
@@ -59,6 +62,10 @@ export default class Create extends Component {
       business_gst_number: '',
       person_email: ''
     })
+    // this is calling parent loadBusiness
+    // parent handle change index
+    this.props.loadmethod();
+
   }
  
   render() {
