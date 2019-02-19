@@ -7,6 +7,7 @@ import { Route } from 'react-router-dom';
 import Create from "./Create";
 import Mail from "./Mail";
 import ClientList from "./ClientList";
+import Navbar from "./Navbar"
 
 class Profile extends Component {
     constructor() {
@@ -43,17 +44,17 @@ class Profile extends Component {
 
     render () {
         return (
-// Navbar
+ 
             <div className="personal">
-            
-            <div className="text-right">
+           
+            {/* <div className="text-right">
             <nav className="navbar navbar-dark bg-dark justify-content-between" >
             <a className="navbar-brand" style={{color:"purple"}}>Navbar</a>
             <form className="form-inline">
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
             <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
-            </nav> </div>
+            </nav> </div> */}
             
         
 
@@ -69,17 +70,18 @@ class Profile extends Component {
                  <i>This is your homepage, navigate by clicking on the tabs!</i>
             </p>
         </div>
-        
+      
         <div className="content-posts profile-content">
         <div className="banner-profile">
         </div>
-
+      
 
  {/* navbar with actions */}
         <ul className="nav nav-tabs" role="tablist">
             <li className="{open_tab ? 0 => 'active':''}"><a href="#posts" role="tab" id="postsTab" data-toggle="tab" aria-controls="posts" aria-expanded="true">Client Signup</a></li>
             <li><a href="#profile" role="tab" id="emailTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">Mail Clients</a></li>
             <li><a href="#chat" role="tab" id="chatTab" data-toggle="tab" aria-controls="chat" aria-expanded="true">List of Clients</a></li>
+            <Navbar></Navbar>{/* <li><a href="#logout" role="tab" id="logouttab" data-toggle="tab" aria-controls="logout" aria-expanded="true">Logout</a></li> */}
         </ul>
 
      
@@ -134,6 +136,7 @@ class Profile extends Component {
 
     </div>
         </div>
+       
        
            
         )

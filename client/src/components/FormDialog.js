@@ -116,7 +116,7 @@ componentDidMount() {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+          <DialogTitle id="form-dialog-title">Change</DialogTitle>
           <DialogContent >
             <DialogContentText >
              Add a note or edit the client: 
@@ -173,7 +173,7 @@ componentDidMount() {
               Cancel
             </Button>
             <Button type='submit' onClick={this.onSubmit} color="primary" style={{fontSize: '200%'}} >
-              Subscribe
+              Change
               </Button>
             
           </DialogActions>
