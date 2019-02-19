@@ -86,7 +86,7 @@ class Profile extends Component {
         <div className="tab-content">
 
  {/* 'create' a new business tab */}
-            <div className="{open_tab ? 0 => 'active':''}" role="tabpanel" id="posts" aria-labelledby="postsTab">
+            <div className="tab-pane fade"role="tabpanel" id="posts" aria-labelledby="postsTab">
                 <div id="posts-container" className="container-fluid container-posts" style={{ backgroundColor:"white"}}>
                
              <div className="card-post">
@@ -105,9 +105,9 @@ class Profile extends Component {
                         </div>
                     </div>
                 </div>
-                <div id="loading">
+                {/* <div id="loading">
                     <img src="img/load.gif" alt="loader"/>
-                </div>
+                </div> */}
             </div>
 {/* mail tab */}
             <div className="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="emailTab">

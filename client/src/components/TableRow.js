@@ -45,7 +45,7 @@ class TableRow extends Component {
             <FormDialog noteId={this.props.obj._id} onClick={this.handleClickOpen} />
           </td>
           <td>
-            <button onClick={this.delete} className="btn btn-danger">Delete</button>
+            <button onClick={this.delete} className="btn btn-danger" style={{background: "#f3ad00", marginTop: "10px"}}>Delete</button>
           </td>
         </tr>
     );
