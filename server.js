@@ -6,7 +6,7 @@ var mongoose = require("mongoose")
 var port = process.env.PORT || 5000
 var path = require('path')
 var logger = require('morgan');
-var cookieParser = require('body-Parser');
+
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -35,7 +35,7 @@ app.use('/business', businessRoute);
 
 app.use(logger('dev'));
 
-app.use(cookieParser());
+
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
